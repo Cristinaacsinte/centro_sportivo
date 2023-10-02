@@ -17,7 +17,7 @@ import org.hibernate.annotations.GeneratedColumn;
 public class Contract implements Model {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @GeneratedColumn("id")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "contact_type", nullable = false)

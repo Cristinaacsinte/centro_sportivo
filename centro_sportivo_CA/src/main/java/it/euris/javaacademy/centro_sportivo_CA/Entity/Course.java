@@ -16,7 +16,7 @@ import org.hibernate.annotations.GeneratedColumn;
 public class Course implements Model {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @GeneratedColumn("id")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "deleted", nullable = false)

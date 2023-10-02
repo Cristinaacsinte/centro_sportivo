@@ -21,7 +21,7 @@ import java.util.List;
 public class Customer implements Model {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @GeneratedColumn("id")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "birth_name", nullable = false)

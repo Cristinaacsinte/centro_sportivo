@@ -6,6 +6,7 @@ import it.euris.javaacademy.centro_sportivo_CA.dto.archetype.Model;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GeneratedColumn;
+import org.hibernate.annotations.IdGeneratorType;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.List;
 public class Address implements Model {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @GeneratedColumn("id")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "address", nullable = false)
