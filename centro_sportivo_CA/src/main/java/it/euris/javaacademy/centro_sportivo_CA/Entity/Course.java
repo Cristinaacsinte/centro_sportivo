@@ -7,7 +7,6 @@ import lombok.*;
 import org.hibernate.annotations.GeneratedColumn;
 
 @Builder
-@Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,19 +18,20 @@ public class Course implements Model {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "deleted", nullable = false)
-    private Boolean deleted;
+    @Column(name = "deleted")
+    @Builder.Default
+    private Boolean deleted = false;
 
-    @Column(name = "denomination", nullable = false)
+    @Column(name = "denomination")
     private String denomination;
 
-    @Column(name = "difficulty", nullable = false)
+    @Column(name = "difficulty")
     private String difficulty;
 
-    @Column(name = "price", nullable = false)
+    @Column(name = "price")
     private Double price;
 
-    @Column(name = "sport", nullable = false)
+    @Column(name = "sport")
     private String sport;
 
 

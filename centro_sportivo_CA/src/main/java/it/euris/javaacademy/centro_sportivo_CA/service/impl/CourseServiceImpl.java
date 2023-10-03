@@ -31,8 +31,5 @@ public class CourseServiceImpl implements CourseService {
         return Optional.ofNullable(courseRepository.findById(idCourse).orElse(Course.builder().build()));
     }
 
-    @Override
-    public List<Course> findByCustomer(Customer customer) {
-        return courseRepository.findByCustomer(customer);
-    }
+
 }

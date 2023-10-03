@@ -1,5 +1,6 @@
 package it.euris.javaacademy.centro_sportivo_CA.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.euris.javaacademy.centro_sportivo_CA.dto.AddressDTO;
 import it.euris.javaacademy.centro_sportivo_CA.dto.archetype.Dto;
 import it.euris.javaacademy.centro_sportivo_CA.dto.archetype.Model;
@@ -24,28 +25,27 @@ public class Address implements Model {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "address", nullable = false)
+    @Column(name = "address")
     private String address;
 
-    @Column(name = "city", nullable = false)
+    @Column(name = "city")
     private String city;
 
-    @Column(name = "deleted", nullable = false)
-    private Boolean deleted;
+    @Column(name = "deleted")
+    @Builder.Default
+    private Boolean deleted = false;
 
-    @Column(name = "nation", nullable = false)
+    @Column(name = "nation")
     private String nation;
 
-    @Column(name = "postal_code", nullable = false)
+    @Column(name = "postal_code")
     private Integer postalCode;
 
-    @Column(name = "province", nullable = false)
+    @Column(name = "province")
     private String province ;
 
-    @Column(name = "customer_id")
-    private Long customerId;
-
-    @OneToOne(mappedBy = "id", fetch = FetchType.EAGER)
+    @OneToOne
+    @JoinColumn(name = "costumer_id")
     private Customer customer;
 
 
@@ -59,7 +59,6 @@ public class Address implements Model {
                 .nation(nation)
                 .postalCode(postalCode)
                 .province(province)
-                .customerId(customerId)
                 .build();
     }
 }

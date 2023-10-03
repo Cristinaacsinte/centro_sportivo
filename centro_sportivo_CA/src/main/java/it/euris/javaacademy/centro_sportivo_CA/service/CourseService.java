@@ -14,5 +14,5 @@ public interface CourseService {
     void deleteById(Long idCourse);
 
     Optional<Course> findById(Long idCourse);
-    List<Course> findByCustomer(Customer customer);
+
 }

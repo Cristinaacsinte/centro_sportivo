@@ -1,11 +1,10 @@
 package it.euris.javaacademy.centro_sportivo_CA.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.euris.javaacademy.centro_sportivo_CA.dto.CustomerDTO;
-import it.euris.javaacademy.centro_sportivo_CA.dto.archetype.Dto;
 import it.euris.javaacademy.centro_sportivo_CA.dto.archetype.Model;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.GeneratedColumn;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -24,27 +23,30 @@ public class Customer implements Model {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "birth_name", nullable = false)
+    @Column(name = "birth_name")
     private LocalDateTime birthName;
 
-    @Column(name = "deleted", nullable = false)
-    private Boolean deleted;
+    @Column(name = "deleted")
+    @Builder.Default
+    private Boolean deleted = false;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "surname", nullable = false)
+    @Column(name = "surname")
     private String surname;
 
-    @Column(name = "tax_code", nullable = false)
+    @Column(name = "tax_code")
     private String taxCode;
 
     @OneToOne
-    @JoinColumn(name ="customer_id" )
+    @JoinColumn(name = "customer_id")
+    @JsonIgnore
     private Address address;
 
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
+    @JsonIgnore
     List<Contract> contracts;
 
     @Override
@@ -53,10 +55,11 @@ public class Customer implements Model {
                 .builder()
                 .id(id)
                 .birthName(birthName)
-                .deleted(deleted)
                 .surname(surname)
                 .taxCode(taxCode)
                 .build();
     }
+
+
 }
 

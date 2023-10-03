@@ -20,17 +20,18 @@ public class Contract implements Model {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "contact_type", nullable = false)
+    @Column(name = "contact_type")
     private String contactType;
 
-    @Column(name = "deleted", nullable = false)
-    private Boolean deleted;
+    @Column(name = "deleted")
+    @Builder.Default
+    private Boolean deleted= false;
 
-    @Column(name = "value", nullable = false)
+    @Column(name = "value")
     private String value;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id", nullable = false)
+    @JoinColumn(name = "customer_id")
     Customer customer;
 
     @Override

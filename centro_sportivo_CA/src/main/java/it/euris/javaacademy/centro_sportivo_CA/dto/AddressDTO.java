@@ -2,16 +2,10 @@ package it.euris.javaacademy.centro_sportivo_CA.dto;
 
 import it.euris.javaacademy.centro_sportivo_CA.Entity.Address;
 import it.euris.javaacademy.centro_sportivo_CA.dto.archetype.Dto;
-import it.euris.javaacademy.centro_sportivo_CA.dto.archetype.Model;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GeneratedColumn;
 
 @Data
 @NoArgsConstructor
@@ -31,9 +25,10 @@ public class AddressDTO implements Dto {
 
     private Integer postalCode;
 
-    private String province ;
+    private String province;
 
     private Long customerId;
+
     @Override
     public Address toModel() {
         return Address
@@ -45,8 +40,7 @@ public class AddressDTO implements Dto {
                 .nation(nation)
                 .postalCode(postalCode)
                 .province(province)
-                .customerId(customerId)
-                        .build();
+                .build();
 
     }
 }
