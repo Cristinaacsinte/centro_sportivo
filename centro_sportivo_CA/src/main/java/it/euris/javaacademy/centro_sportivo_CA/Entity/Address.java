@@ -45,7 +45,7 @@ public class Address implements Model {
     @Column(name = "customer_id")
     private Long customerId;
 
-    @OneToOne(mappedBy = "customer", fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "id", fetch = FetchType.EAGER)
     private Customer customer;
 
 
