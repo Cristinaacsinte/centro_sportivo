@@ -1,6 +1,7 @@
 package it.euris.javaacademy.centro_sportivo_CA.service.impl;
 
 import it.euris.javaacademy.centro_sportivo_CA.Entity.Customer;
+import it.euris.javaacademy.centro_sportivo_CA.exception.IdMustBeNullException;
 import it.euris.javaacademy.centro_sportivo_CA.exception.IdMustNotBeNullException;
 import it.euris.javaacademy.centro_sportivo_CA.repository.CustomerRepository;
 import it.euris.javaacademy.centro_sportivo_CA.service.CustomerService;
@@ -8,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class CustomerServiceImpl implements CustomerService {
@@ -21,7 +23,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Customer insert(Customer customer) {
         if (customer.getId() != null) {
-            throw new IdMustNotBeNullException();
+            throw new IdMustBeNullException();
         }
         return customerRepository.save(customer);
     }
@@ -39,7 +41,7 @@ public class CustomerServiceImpl implements CustomerService {
     public Boolean deleteById(Long idCustomer) {
         customerRepository.deleteById(idCustomer);
 
-        return null;
+        return customerRepository.findById(idCustomer).isEmpty();
     }
 
     @Override

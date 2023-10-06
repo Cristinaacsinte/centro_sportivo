@@ -8,6 +8,7 @@ import org.hibernate.annotations.GeneratedColumn;
 
 @Builder
 @Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity

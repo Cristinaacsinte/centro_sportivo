@@ -1,6 +1,7 @@
 package it.euris.javaacademy.centro_sportivo_CA.service;
 
 import it.euris.javaacademy.centro_sportivo_CA.Entity.Contract;
+import it.euris.javaacademy.centro_sportivo_CA.Entity.Course;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,9 +9,10 @@ import java.util.Optional;
 public interface ContractService  {
     List<Contract> findAll();
 
-    Contract save(Contract contract);
+    Contract insert(Contract contract);
+    Contract update(Contract contract);
 
-    void deleteById(Long idContract);
+   Boolean deleteById(Long idContract);
 
-   Optional<Contract> findById(Long idContract);
+   Contract findById(Long idContract);
 }

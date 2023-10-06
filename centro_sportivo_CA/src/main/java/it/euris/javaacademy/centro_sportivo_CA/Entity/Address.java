@@ -1,16 +1,9 @@
 package it.euris.javaacademy.centro_sportivo_CA.Entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.euris.javaacademy.centro_sportivo_CA.dto.AddressDTO;
-import it.euris.javaacademy.centro_sportivo_CA.dto.archetype.Dto;
 import it.euris.javaacademy.centro_sportivo_CA.dto.archetype.Model;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.GeneratedColumn;
-import org.hibernate.annotations.IdGeneratorType;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Builder
 @Getter
@@ -42,7 +35,7 @@ public class Address implements Model {
     private Integer postalCode;
 
     @Column(name = "province")
-    private String province ;
+    private String province;
 
     @OneToOne
     @JoinColumn(name = "costumer_id")
@@ -62,3 +55,5 @@ public class Address implements Model {
                 .build();
     }
 }
+
+
