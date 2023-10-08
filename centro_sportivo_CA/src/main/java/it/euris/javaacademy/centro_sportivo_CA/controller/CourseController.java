@@ -15,7 +15,6 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @RestController
 @RequestMapping("/course")
 @SecurityRequirement(name = "authentication")

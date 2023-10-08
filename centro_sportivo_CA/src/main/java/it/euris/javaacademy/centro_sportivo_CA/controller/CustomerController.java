@@ -8,7 +8,6 @@ import it.euris.javaacademy.centro_sportivo_CA.exception.IdMustBeNullException;
 import it.euris.javaacademy.centro_sportivo_CA.exception.IdMustNotBeNullException;
 import it.euris.javaacademy.centro_sportivo_CA.service.CustomerService;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -16,7 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @AllArgsConstructor
-@NoArgsConstructor
+
 @RestController
 @RequestMapping("/customers")
 @SecurityRequirement(name = "authentication")
@@ -63,6 +62,7 @@ public class CustomerController {
     public CustomerDTO getCustomerById(@PathVariable("id") Long idCustomer) {
         return customerService.findById(idCustomer).toDto();
     }
+
 
 
 }

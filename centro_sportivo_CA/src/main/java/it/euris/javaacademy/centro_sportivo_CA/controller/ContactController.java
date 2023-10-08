@@ -15,7 +15,6 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @RestController
 @RequestMapping("/contract")
 @SecurityRequirement(name = "authentication")
