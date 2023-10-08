@@ -1,7 +1,6 @@
 package it.euris.javaacademy.centro_sportivo_CA.service.impl;
 
 import it.euris.javaacademy.centro_sportivo_CA.Entity.Contract;
-import it.euris.javaacademy.centro_sportivo_CA.Entity.Customer;
 import it.euris.javaacademy.centro_sportivo_CA.exception.IdMustBeNullException;
 import it.euris.javaacademy.centro_sportivo_CA.exception.IdMustNotBeNullException;
 import it.euris.javaacademy.centro_sportivo_CA.repository.ContractRepository;
@@ -10,7 +9,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class ContractServiceImpl implements ContractService {

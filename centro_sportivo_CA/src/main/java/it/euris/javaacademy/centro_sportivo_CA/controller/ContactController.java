@@ -1,5 +1,6 @@
 package it.euris.javaacademy.centro_sportivo_CA.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import it.euris.javaacademy.centro_sportivo_CA.Entity.Contract;
 import it.euris.javaacademy.centro_sportivo_CA.dto.ContractDTO;
 import it.euris.javaacademy.centro_sportivo_CA.exception.IdMustBeNullException;
@@ -17,8 +18,10 @@ import java.util.List;
 @NoArgsConstructor
 @RestController
 @RequestMapping("/contract")
+@SecurityRequirement(name = "authentication")
 public class ContactController {
     ContractService contractService;
+
     @GetMapping("/v1")
     public List<ContractDTO> getAllContract() {
 
@@ -27,23 +30,21 @@ public class ContactController {
 
     @PostMapping("/v1")
     public ContractDTO saveContract(@RequestBody ContractDTO contractDTO) {
-        try{
+        try {
             Contract contract = contractDTO.toModel();
             return contractService.insert(contract).toDto();
-        }
-        catch(IdMustBeNullException e) {
+        } catch (IdMustBeNullException e) {
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST, e.getMessage());
         }
     }
 
     @PutMapping("/v1")
-    public ContractDTO updateContract(@RequestBody ContractDTO contractDTO){
-        try{
-            Contract contract= contractDTO.toModel();
+    public ContractDTO updateContract(@RequestBody ContractDTO contractDTO) {
+        try {
+            Contract contract = contractDTO.toModel();
             return contractService.update(contract).toDto();
-        }
-        catch(IdMustNotBeNullException e) {
+        } catch (IdMustNotBeNullException e) {
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST, e.getMessage());
         }

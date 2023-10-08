@@ -1,6 +1,7 @@
 package it.euris.javaacademy.centro_sportivo_CA.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import it.euris.javaacademy.centro_sportivo_CA.Entity.Customer;
 import it.euris.javaacademy.centro_sportivo_CA.dto.CustomerDTO;
 import it.euris.javaacademy.centro_sportivo_CA.exception.IdMustBeNullException;
@@ -18,9 +19,10 @@ import java.util.List;
 @NoArgsConstructor
 @RestController
 @RequestMapping("/customers")
+@SecurityRequirement(name = "authentication")
 public class CustomerController {
 
-   CustomerService customerService;
+    CustomerService customerService;
 
     @GetMapping("/v1")
     @Operation(description = """

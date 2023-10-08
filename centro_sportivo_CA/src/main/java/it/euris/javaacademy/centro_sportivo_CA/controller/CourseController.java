@@ -1,5 +1,6 @@
 package it.euris.javaacademy.centro_sportivo_CA.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import it.euris.javaacademy.centro_sportivo_CA.Entity.Course;
 import it.euris.javaacademy.centro_sportivo_CA.dto.CourseDTO;
 import it.euris.javaacademy.centro_sportivo_CA.exception.IdMustBeNullException;
@@ -12,12 +13,15 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @RestController
 @RequestMapping("/course")
+@SecurityRequirement(name = "authentication")
 public class CourseController {
     CourseService courseService;
+
     @GetMapping("/v1")
     public List<CourseDTO> getAllCourse() {
 
