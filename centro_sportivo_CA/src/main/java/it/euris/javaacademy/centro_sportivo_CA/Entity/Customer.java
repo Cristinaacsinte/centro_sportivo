@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -48,6 +49,9 @@ public class Customer implements Model {
     @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
     @JsonIgnore
     List<Contract> contracts;
+
+    @OneToMany(mappedBy = "customer")
+    private List<CustomerCourse> customerCourses = new ArrayList<>();
 
     @Override
     public CustomerDTO toDto() {

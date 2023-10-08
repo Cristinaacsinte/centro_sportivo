@@ -1,9 +1,7 @@
 package it.euris.javaacademy.centro_sportivo_CA.controller;
 
 import it.euris.javaacademy.centro_sportivo_CA.Entity.Contract;
-import it.euris.javaacademy.centro_sportivo_CA.Entity.Course;
 import it.euris.javaacademy.centro_sportivo_CA.dto.ContractDTO;
-import it.euris.javaacademy.centro_sportivo_CA.dto.CourseDTO;
 import it.euris.javaacademy.centro_sportivo_CA.exception.IdMustBeNullException;
 import it.euris.javaacademy.centro_sportivo_CA.exception.IdMustNotBeNullException;
 import it.euris.javaacademy.centro_sportivo_CA.service.ContractService;
@@ -18,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @RestController
-@RequestMapping("/course")
+@RequestMapping("/contract")
 public class ContactController {
     ContractService contractService;
     @GetMapping("/v1")
@@ -52,12 +50,12 @@ public class ContactController {
     }
 
     @DeleteMapping("/v1/{id}")
-    public Boolean deleteCourse(@PathVariable("id") Long idContract) {
+    public Boolean deleteContact(@PathVariable("id") Long idContract) {
         return contractService.deleteById(idContract);
     }
 
     @GetMapping("/v1/{id}")
-    public ContractDTO getCourseById(@PathVariable("id") Long idContract) {
+    public ContractDTO getContactById(@PathVariable("id") Long idContract) {
         return contractService.findById(idContract).toDto();
     }
 }

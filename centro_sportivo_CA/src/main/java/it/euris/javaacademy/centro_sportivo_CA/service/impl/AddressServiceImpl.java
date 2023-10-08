@@ -37,7 +37,7 @@ public class AddressServiceImpl implements AddressService {
     public Boolean deleteById(Long idAddress) {
         addressRepository.deleteById(idAddress);
 
-        return addressRepository.findById(idAddress).isEmpty();;
+        return addressRepository.findById(idAddress).isEmpty();
     }
 
     @Override

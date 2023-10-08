@@ -31,7 +31,7 @@ public class CustomerController {
     }
 
     @PostMapping("/v1")
-    public CustomerDTO saveCustomer(@RequestBody CustomerDTO customerDTO) {
+    public CustomerDTO insertCustomer(@RequestBody CustomerDTO customerDTO) {
         try {
             Customer customer = customerDTO.toModel();
             return customerService.insert(customer).toDto();

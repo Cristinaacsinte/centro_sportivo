@@ -20,7 +20,7 @@ public class ContractServiceImpl implements ContractService {
     public List<Contract> findAll() {
         return contractRepository.findAll();
     }
-    Override
+    @Override
     public Contract insert(Contract contract) {
         if (contract.getId() != null) {
             throw new IdMustBeNullException();
